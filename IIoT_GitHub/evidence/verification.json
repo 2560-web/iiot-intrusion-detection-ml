@@ -1,0 +1,21 @@
+{
+  "checked_utc": "2026-10-24",
+  "checks": {
+    "saved_model_replays_match": true,
+    "csv_100_rows": true,
+    "missing_schema_rejected": true,
+    "empty_rows_rejected": true,
+    "invalid_json_rejected": true,
+    "cross_origin_rejected": true,
+    "annotation_columns_excluded": true,
+    "zero_exact_group_overlap": true,
+    "holdout_accuracy_recomputes": true,
+    "all_cv_scores_recorded": true,
+    "preview_embedded_results": true,
+    "406_original_message_checksums": true,
+    "historical_rows_and_confusion_matrix_reproduced": true
+  },
+  "all_passed": true,
+  "browser_visual_qa": "Not completed; local browser executable unavailable and cloud-browser file URL access is blocked. JavaScript syntax and HTTP inference were checked.",
+  "original_source_recovery": "Recovered 406 messages across three relevant conversations; historical notebook binary and attachments were not exported."
+}

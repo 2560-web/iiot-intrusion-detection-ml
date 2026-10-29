@@ -1,0 +1,346 @@
+{
+  "title": "IIoT Traffic Lab",
+  "owner": "Prem Armstrong D",
+  "implementation": "2026 controlled evaluation, separate from the recovered historical source and executable restoration",
+  "data_kind": "Public Edge-IIoTset network traffic; no synthetic training data",
+  "source": {
+    "source": "https://www.kaggle.com/datasets/mohamedamineferrag/edgeiiotset-cyber-security-dataset-of-iot-iiot",
+    "file": "Edge-IIoTset dataset/Selected dataset for ML and DL/ML-EdgeIIoT-dataset.csv",
+    "downloaded_utc": "2026-10-24",
+    "sha256": "53101fad091af20bee815860962a5016b802ee45d456a141042f6183094c3c1a",
+    "bytes": 82184390
+  },
+  "seed": 42,
+  "rows": 157800,
+  "features": 40,
+  "raw_columns": 63,
+  "class_counts": {
+    "1": 133499,
+    "0": 24301
+  },
+  "train_rows": 126425,
+  "test_rows": 31375,
+  "train_class_counts": {
+    "1": 107050,
+    "0": 19375
+  },
+  "test_class_counts": {
+    "1": 26449,
+    "0": 4926
+  },
+  "unique_feature_vectors": 151606,
+  "repeated_feature_rows": 6194,
+  "conflicting_label_groups": 151,
+  "train_test_group_overlap": 0,
+  "split": "80/20 split of unique feature-vector groups; row counts may differ from 80/20",
+  "dropped_all_missing": [],
+  "excluded_columns": [
+    "frame.time",
+    "ip.src_host",
+    "ip.dst_host",
+    "arp.dst.proto_ipv4",
+    "arp.src.proto_ipv4",
+    "http.file_data",
+    "http.request.uri.query",
+    "http.request.method",
+    "http.referer",
+    "http.request.full_uri",
+    "http.request.version",
+    "tcp.dstport",
+    "tcp.options",
+    "tcp.payload",
+    "tcp.srcport",
+    "udp.port",
+    "dns.qry.name",
+    "mqtt.conack.flags",
+    "mqtt.msg",
+    "mqtt.protoname",
+    "mqtt.topic",
+    "mqtt.topic_len",
+    "Attack_type"
+  ],
+  "columns": [
+    "arp.opcode",
+    "arp.hw.size",
+    "icmp.checksum",
+    "icmp.seq_le",
+    "icmp.transmit_timestamp",
+    "icmp.unused",
+    "http.content_length",
+    "http.response",
+    "http.tls_port",
+    "tcp.ack",
+    "tcp.ack_raw",
+    "tcp.checksum",
+    "tcp.connection.fin",
+    "tcp.connection.rst",
+    "tcp.connection.syn",
+    "tcp.connection.synack",
+    "tcp.flags",
+    "tcp.flags.ack",
+    "tcp.len",
+    "tcp.seq",
+    "udp.stream",
+    "udp.time_delta",
+    "dns.qry.name.len",
+    "dns.qry.qu",
+    "dns.qry.type",
+    "dns.retransmission",
+    "dns.retransmit_request",
+    "dns.retransmit_request_in",
+    "mqtt.conflag.cleansess",
+    "mqtt.conflags",
+    "mqtt.hdrflags",
+    "mqtt.len",
+    "mqtt.msg_decoded_as",
+    "mqtt.msgtype",
+    "mqtt.proto_len",
+    "mqtt.ver",
+    "mbtcp.len",
+    "mbtcp.trans_id",
+    "mbtcp.unit_id",
+    "tcp_ack_len_ratio"
+  ],
+  "fit_seconds": 3.7177064229999814,
+  "models": {
+    "Random Forest": {
+      "accuracy": 0.9674900398406374,
+      "balanced_accuracy": 0.9287635116093088,
+      "precision": 0.976430471765279,
+      "recall": 0.9852168323944195,
+      "f1": 0.9808039747064138,
+      "roc_auc": 0.9787882284334677,
+      "confusion_matrix": [
+        [
+          4297,
+          629
+        ],
+        [
+          391,
+          26058
+        ]
+      ],
+      "inference_seconds": 0.1031013100000564
+    },
+    "Majority baseline": {
+      "accuracy": 0.842996015936255,
+      "balanced_accuracy": 0.5,
+      "precision": 0.842996015936255,
+      "recall": 1.0,
+      "f1": 0.9148104593248478,
+      "roc_auc": 0.5,
+      "confusion_matrix": [
+        [
+          0,
+          4926
+        ],
+        [
+          0,
+          26449
+        ]
+      ],
+      "inference_seconds": 0.00013660799959325232
+    },
+    "TCP-only Random Forest": {
+      "accuracy": 0.9671075697211156,
+      "balanced_accuracy": 0.928041072372608,
+      "precision": 0.9762056431970623,
+      "recall": 0.9849899807176075,
+      "f1": 0.9805781391147245,
+      "roc_auc": 0.9753751721938237,
+      "confusion_matrix": [
+        [
+          4291,
+          635
+        ],
+        [
+          397,
+          26052
+        ]
+      ],
+      "inference_seconds": 0.07181521999973484
+    }
+  },
+  "training_group_cv_f1": [
+    0.9805930669636642,
+    0.9797606942374393,
+    0.9788398191055776
+  ],
+  "feature_importance": [
+    {
+      "feature": "tcp.ack",
+      "importance": 0.18922686827052418
+    },
+    {
+      "feature": "tcp.seq",
+      "importance": 0.17166837792235834
+    },
+    {
+      "feature": "tcp.checksum",
+      "importance": 0.13414637915642927
+    },
+    {
+      "feature": "tcp_ack_len_ratio",
+      "importance": 0.11138291637655712
+    },
+    {
+      "feature": "tcp.flags",
+      "importance": 0.0955045651005435
+    },
+    {
+      "feature": "tcp.len",
+      "importance": 0.0775594999237168
+    },
+    {
+      "feature": "tcp.ack_raw",
+      "importance": 0.06282390680917907
+    },
+    {
+      "feature": "tcp.connection.rst",
+      "importance": 0.02923866181607596
+    },
+    {
+      "feature": "mqtt.hdrflags",
+      "importance": 0.022972902702019564
+    },
+    {
+      "feature": "mqtt.msgtype",
+      "importance": 0.017663078914124778
+    },
+    {
+      "feature": "mqtt.len",
+      "importance": 0.017499131010553514
+    },
+    {
+      "feature": "tcp.flags.ack",
+      "importance": 0.010826207707408126
+    },
+    {
+      "feature": "http.content_length",
+      "importance": 0.00887920185477948
+    },
+    {
+      "feature": "tcp.connection.syn",
+      "importance": 0.007874882490948828
+    },
+    {
+      "feature": "icmp.checksum",
+      "importance": 0.0078053944531977565
+    },
+    {
+      "feature": "icmp.seq_le",
+      "importance": 0.006784837339076925
+    },
+    {
+      "feature": "udp.stream",
+      "importance": 0.006712321715028627
+    },
+    {
+      "feature": "http.response",
+      "importance": 0.006569191385461729
+    },
+    {
+      "feature": "tcp.connection.synack",
+      "importance": 0.00316891259078441
+    },
+    {
+      "feature": "tcp.connection.fin",
+      "importance": 0.0030265913013881006
+    },
+    {
+      "feature": "mqtt.proto_len",
+      "importance": 0.002250042538448464
+    },
+    {
+      "feature": "mqtt.conflag.cleansess",
+      "importance": 0.001707082847437974
+    },
+    {
+      "feature": "udp.time_delta",
+      "importance": 0.0012196247005354377
+    },
+    {
+      "feature": "mqtt.conflags",
+      "importance": 0.0011909639761070864
+    },
+    {
+      "feature": "dns.retransmission",
+      "importance": 0.0008415198175978943
+    },
+    {
+      "feature": "mqtt.ver",
+      "importance": 0.0007496775018696667
+    },
+    {
+      "feature": "dns.qry.qu",
+      "importance": 0.0002816037772301145
+    },
+    {
+      "feature": "arp.opcode",
+      "importance": 0.00022445059588549644
+    },
+    {
+      "feature": "arp.hw.size",
+      "importance": 0.0001649691327714633
+    },
+    {
+      "feature": "dns.qry.name.len",
+      "importance": 3.30898669302733e-05
+    },
+    {
+      "feature": "icmp.transmit_timestamp",
+      "importance": 3.1464050301423057e-06
+    },
+    {
+      "feature": "icmp.unused",
+      "importance": 0.0
+    },
+    {
+      "feature": "http.tls_port",
+      "importance": 0.0
+    },
+    {
+      "feature": "dns.qry.type",
+      "importance": 0.0
+    },
+    {
+      "feature": "dns.retransmit_request",
+      "importance": 0.0
+    },
+    {
+      "feature": "dns.retransmit_request_in",
+      "importance": 0.0
+    },
+    {
+      "feature": "mqtt.msg_decoded_as",
+      "importance": 0.0
+    },
+    {
+      "feature": "mbtcp.len",
+      "importance": 0.0
+    },
+    {
+      "feature": "mbtcp.trans_id",
+      "importance": 0.0
+    },
+    {
+      "feature": "mbtcp.unit_id",
+      "importance": 0.0
+    }
+  ],
+  "versions": {
+    "python": "3.12.14",
+    "sklearn": "1.8.0",
+    "pandas": "2.2.3",
+    "numpy": "2.3.5"
+  },
+  "limitations": [
+    "One public testbed dataset; no independent-site or future-capture validation.",
+    "Grouping prevents exact feature-vector overlap, not session, device or temporal leakage.",
+    "Protocol and capture artefacts may still make labels easier to predict.",
+    "No joule, watt or device-power measurements; energy savings are not measured.",
+    "Random Forest probabilities are uncalibrated model scores.",
+    "Timing is a local wall-clock observation, not an energy benchmark."
+  ],
+  "total_seconds": 28.63202587099977
+}

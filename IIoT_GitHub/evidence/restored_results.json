@@ -1,0 +1,388 @@
+{
+  "implementation": "Executable restoration from recovered 2024 user code; assembled in 2026",
+  "source_chat": "https://chatgpt.com/c/7eea1afd-509b-4b6d-9474-ddbad19792fe?src=history_search",
+  "source_message": "aaa27469-f2b5-47f8-9960-f10c75fbeae0",
+  "rows": 156986,
+  "duplicates_removed": 814,
+  "features": 87,
+  "train_rows": 125588,
+  "test_rows": 31398,
+  "ratio_expression": "tcp.ack / (tcp.len + 1)",
+  "accuracy": 1.0,
+  "attack_f1": 1.0,
+  "roc_auc": 1.0,
+  "confusion_matrix": [
+    [
+      4942,
+      0
+    ],
+    [
+      0,
+      26456
+    ]
+  ],
+  "five_fold_cv_accuracy": [
+    1.0,
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "feature_importance": [
+    {
+      "feature": "mqtt.topic",
+      "importance": 0.3018658650743194
+    },
+    {
+      "feature": "mqtt.protoname_0.0",
+      "importance": 0.16223379100288665
+    },
+    {
+      "feature": "mqtt.conack.flags_0.0",
+      "importance": 0.1340626327761538
+    },
+    {
+      "feature": "dns.qry.name.len",
+      "importance": 0.11860210943107505
+    },
+    {
+      "feature": "ip.src_host",
+      "importance": 0.04825748494500319
+    },
+    {
+      "feature": "mqtt.hdrflags",
+      "importance": 0.03438040985755397
+    },
+    {
+      "feature": "ip.dst_host",
+      "importance": 0.03405798832374626
+    },
+    {
+      "feature": "tcp.dstport",
+      "importance": 0.02274537642724161
+    },
+    {
+      "feature": "mqtt.msgtype",
+      "importance": 0.01514744096716245
+    },
+    {
+      "feature": "tcp.seq",
+      "importance": 0.015084539826408639
+    },
+    {
+      "feature": "http.request.version_0",
+      "importance": 0.011725575721042937
+    },
+    {
+      "feature": "mqtt.len",
+      "importance": 0.011707214978021487
+    },
+    {
+      "feature": "http.request.method_0.0",
+      "importance": 0.01128298005838777
+    },
+    {
+      "feature": "hour",
+      "importance": 0.010116859079656194
+    },
+    {
+      "feature": "http.request.version_0.0",
+      "importance": 0.009805582474101748
+    },
+    {
+      "feature": "tcp_ack_len_ratio",
+      "importance": 0.009584457453543417
+    },
+    {
+      "feature": "tcp.flags",
+      "importance": 0.009047414404440084
+    },
+    {
+      "feature": "tcp.checksum",
+      "importance": 0.00837457595187989
+    },
+    {
+      "feature": "tcp.srcport",
+      "importance": 0.006074609793289462
+    },
+    {
+      "feature": "tcp.ack",
+      "importance": 0.00545105138700687
+    },
+    {
+      "feature": "udp.stream",
+      "importance": 0.0029178761790988584
+    },
+    {
+      "feature": "http.referer_0.0",
+      "importance": 0.002534115777940842
+    },
+    {
+      "feature": "icmp.checksum",
+      "importance": 0.0024883511121382416
+    },
+    {
+      "feature": "tcp.flags.ack",
+      "importance": 0.0022941364864227706
+    },
+    {
+      "feature": "minute",
+      "importance": 0.0021971363591617027
+    },
+    {
+      "feature": "tcp.connection.synack",
+      "importance": 0.0013586753392025907
+    },
+    {
+      "feature": "mqtt.proto_len",
+      "importance": 0.0011821883955913598
+    },
+    {
+      "feature": "mqtt.ver",
+      "importance": 0.0010815865405465704
+    },
+    {
+      "feature": "tcp.connection.rst",
+      "importance": 0.0009970285506179955
+    },
+    {
+      "feature": "mqtt.conack.flags_0x00000000",
+      "importance": 0.000900430325294846
+    },
+    {
+      "feature": "tcp.ack_raw",
+      "importance": 0.0006892872106701015
+    },
+    {
+      "feature": "year",
+      "importance": 0.00036003512354220726
+    },
+    {
+      "feature": "arp.src.proto_ipv4_0.0",
+      "importance": 0.0002731998989292178
+    },
+    {
+      "feature": "tcp.connection.syn",
+      "importance": 0.0001994710934767276
+    },
+    {
+      "feature": "arp.dst.proto_ipv4_192.168.0.128",
+      "importance": 0.00019626425172521077
+    },
+    {
+      "feature": "dns.retransmission",
+      "importance": 0.00018735026249257412
+    },
+    {
+      "feature": "icmp.seq_le",
+      "importance": 0.0001396175920924898
+    },
+    {
+      "feature": "tcp.len",
+      "importance": 0.0001285806888666421
+    },
+    {
+      "feature": "udp.port",
+      "importance": 9.7661418991735e-05
+    },
+    {
+      "feature": "http.referer_0",
+      "importance": 9.702957353541603e-05
+    },
+    {
+      "feature": "tcp.connection.fin",
+      "importance": 3.0684712867667965e-05
+    },
+    {
+      "feature": "dns.qry.name",
+      "importance": 8.065545163985268e-06
+    },
+    {
+      "feature": "day",
+      "importance": 6.091746608835721e-06
+    },
+    {
+      "feature": "arp.src.proto_ipv4_192.168.0.1",
+      "importance": 5.6773506182669825e-06
+    },
+    {
+      "feature": "arp.dst.proto_ipv4_192.168.0.129",
+      "importance": 5.558338572033502e-06
+    },
+    {
+      "feature": "dns.qry.qu",
+      "importance": 4.831872308116423e-06
+    },
+    {
+      "feature": "second",
+      "importance": 4.213685311076412e-06
+    },
+    {
+      "feature": "arp.opcode",
+      "importance": 2.0810971654712257e-06
+    },
+    {
+      "feature": "arp.dst.proto_ipv4_192.168.0.147",
+      "importance": 1.915072488615e-06
+    },
+    {
+      "feature": "arp.src.proto_ipv4_192.168.0.128",
+      "importance": 1.6963091184183326e-06
+    },
+    {
+      "feature": "arp.dst.proto_ipv4_192.168.0.101",
+      "importance": 6.017380151903637e-07
+    },
+    {
+      "feature": "arp.dst.proto_ipv4_192.168.0.1",
+      "importance": 5.94287984121897e-07
+    },
+    {
+      "feature": "month",
+      "importance": 6.130519251957365e-09
+    },
+    {
+      "feature": "arp.hw.size",
+      "importance": 0.0
+    },
+    {
+      "feature": "icmp.transmit_timestamp",
+      "importance": 0.0
+    },
+    {
+      "feature": "icmp.unused",
+      "importance": 0.0
+    },
+    {
+      "feature": "http.content_length",
+      "importance": 0.0
+    },
+    {
+      "feature": "http.response",
+      "importance": 0.0
+    },
+    {
+      "feature": "http.tls_port",
+      "importance": 0.0
+    },
+    {
+      "feature": "udp.time_delta",
+      "importance": 0.0
+    },
+    {
+      "feature": "dns.qry.type",
+      "importance": 0.0
+    },
+    {
+      "feature": "dns.retransmit_request",
+      "importance": 0.0
+    },
+    {
+      "feature": "dns.retransmit_request_in",
+      "importance": 0.0
+    },
+    {
+      "feature": "mqtt.conflag.cleansess",
+      "importance": 0.0
+    },
+    {
+      "feature": "mqtt.conflags",
+      "importance": 0.0
+    },
+    {
+      "feature": "mqtt.msg_decoded_as",
+      "importance": 0.0
+    },
+    {
+      "feature": "mqtt.topic_len",
+      "importance": 0.0
+    },
+    {
+      "feature": "mbtcp.len",
+      "importance": 0.0
+    },
+    {
+      "feature": "mbtcp.trans_id",
+      "importance": 0.0
+    },
+    {
+      "feature": "mbtcp.unit_id",
+      "importance": 0.0
+    },
+    {
+      "feature": "arp.dst.proto_ipv4_0.0",
+      "importance": 0.0
+    },
+    {
+      "feature": "arp.dst.proto_ipv4_192.168.0.170",
+      "importance": 0.0
+    },
+    {
+      "feature": "arp.src.proto_ipv4_0.0.0.0",
+      "importance": 0.0
+    },
+    {
+      "feature": "arp.src.proto_ipv4_192.168.0.101",
+      "importance": 0.0
+    },
+    {
+      "feature": "arp.src.proto_ipv4_192.168.0.129",
+      "importance": 0.0
+    },
+    {
+      "feature": "arp.src.proto_ipv4_192.168.0.170",
+      "importance": 0.0
+    },
+    {
+      "feature": "http.request.method_GET",
+      "importance": 0.0
+    },
+    {
+      "feature": "http.request.method_OPTIONS",
+      "importance": 0.0
+    },
+    {
+      "feature": "http.request.method_POST",
+      "importance": 0.0
+    },
+    {
+      "feature": "http.request.method_TRACE",
+      "importance": 0.0
+    },
+    {
+      "feature": "http.referer_127.0.0.1",
+      "importance": 0.0
+    },
+    {
+      "feature": "http.request.version_/etc/passwd|?data=Download HTTP/1.1",
+      "importance": 0.0
+    },
+    {
+      "feature": "http.request.version_By Dr HTTP/1.1",
+      "importance": 0.0
+    },
+    {
+      "feature": "http.request.version_HTTP/1.0",
+      "importance": 0.0
+    },
+    {
+      "feature": "http.request.version_HTTP/1.1",
+      "importance": 0.0
+    },
+    {
+      "feature": "http.request.version_Src=javascript:alert('Vulnerable')><Img Src=\\\" HTTP/1.1",
+      "importance": 0.0
+    },
+    {
+      "feature": "mqtt.protoname_MQTT",
+      "importance": 0.0
+    }
+  ],
+  "limitations": [
+    "Historical whole-dataset preprocessing retained; this is a legacy replay, not leakage-controlled validation.",
+    "Host identities, MQTT topics and temporal capture patterns remain predictors.",
+    "Source contains repeated attempts and outputs, not an exported notebook with execution state.",
+    "No external testbed validation or energy measurements."
+  ],
+  "elapsed_seconds": 20.241923725000106
+}
