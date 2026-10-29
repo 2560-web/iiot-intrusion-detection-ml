@@ -1,51 +1,102 @@
-# IIoT Traffic Lab
+# Industrial IoT Intrusion Detection Using Machine Learning
 
-A working IIoT traffic-classification project restored from Prem Armstrong D's original ChatGPT code discussions and QMUL ECS750P dissertation. **406 messages across three relevant conversations have been recovered**, including the complete original code pastes and outputs. The archive, runnable restoration and separate controlled demo are kept distinct. See docs/RESTORATION.md.
+**Python | Machine Learning | Cybersecurity | Industrial IoT | Scikit-learn**
 
-## Try it
+[**View Live Demonstration**](https://2560-web.github.io/iiot-intrusion-detection-ml/)
 
-Open web/index.html for a standalone evidence preview. Its example replay uses recorded held-out predictions. For fresh predictions, extract the complete folder, open a terminal there and use Python 3.11 or newer:
+## Project Overview
 
-```sh
-python -m venv .venv
-# Windows: .venv\Scripts\activate
-# macOS/Linux: source .venv/bin/activate
-python -m pip install -r requirements.txt
-python server.py
-```
+This project investigates how machine-learning techniques can identify normal and malicious network traffic in Industrial Internet of Things (IIoT) environments.
 
-Open http://127.0.0.1:8765. Replay a real held-out example, or download the sample CSV from the interface and upload it to run fresh inference. The server listens on localhost only. No dataset download is needed to use the bundled model. Load only the trusted bundled model; Python joblib files are executable serialization, not a safe user upload format.
+Industrial IoT systems connect sensors, devices and industrial infrastructure through networks. These connections improve monitoring and automation, but they also create potential cybersecurity risks.
 
-## Reproduce the experiment
+My objective was to explore how network traffic data could be processed, analysed and classified to help distinguish legitimate activity from potential attacks.
 
-The full dataset is not bundled. Download `ML-EdgeIIoT-dataset.csv` from the authors' Kaggle page below and place it in data/. The raw file contains 157,800 records. The restored preprocessing removes the same 814 duplicates and reproduces the historical 156,986-row dataset.
+The project formed part of my postgraduate computer science work at Queen Mary University of London.
 
-```sh
-python restored_workflow.py
-python pipeline.py
-python build_preview.py
-```
+## What I Worked On
 
-The data/provenance.json file records the downloaded CSV's SHA-256. evidence/results.json contains measured metrics, schema, exclusions, split counts, timing, versions and limitations. evidence/holdout_predictions.csv contains every test-row prediction and its source row index (zero-based data row, excluding the CSV header). Running training replaces the bundled model and evaluation files.
+- Exploring and preparing network traffic data from the Edge-IIoTset dataset.
+- Cleaning data, handling duplicate records and preparing features for machine-learning models.
+- Training and evaluating classification algorithms, including Random Forest.
+- Comparing predictions against known traffic labels.
+- Analysing model performance using classification metrics and visualisations.
+- Developing a Python-based workflow for reproducing the experiment.
+- Building a browser demonstration to make the project's outputs easier to explore.
 
-## What was measured
+## Technologies Used
 
-The new run uses 40 numeric features and an 80/20 split of unique input-vector groups. Identical inputs cannot occur on both sides, although row counts need not be exactly 80/20. Numeric medians are fitted on training data only. Attack_type, hosts, timestamps, topics and payload strings are not model inputs. Conflicting input/label groups are reported, not silently removed. Random Forest is compared with a majority baseline and a TCP-only forest on the same holdout. Three-fold grouped CV is run on the training partition only; no parameter search uses the holdout.
+| Area | Technologies |
+|---|---|
+| Programming | Python |
+| Data analysis | Pandas, NumPy |
+| Machine learning | Scikit-learn, Random Forest |
+| Development | Jupyter Notebook |
+| Evaluation | Accuracy, precision, recall, F1-score, confusion matrix |
+| Demonstration | HTML, Python web server |
+| Version control | GitHub |
 
-The final holdout accuracy is about 96.75%, with attack F1 about 98.08%. These are NEW results from the separate controlled experiment. The historical restoration, in contrast, reproduces the reported 100% test accuracy and confusion matrix; its whole-dataset preprocessing and identity/capture predictors limit what that score establishes. The restoration has 87 assembled model features rather than the report's 97 preprocessing columns. Both results are kept in evidence/. The data are class-imbalanced; consult balanced accuracy and the confusion matrix alongside accuracy/F1. The test set is held out from fitting and tuning, but is used for the final comparison and displayed examples; it should not be reused for iterative tuning.
+## Dataset
 
-## What remains uncertain
+The project uses the **Edge-IIoTset** dataset, which contains network traffic information associated with normal behaviour and different attack categories in IoT and IIoT environments.
 
-Grouping only controls exact numeric-vector overlap, not device/session/time relationships. Capture artefacts, related traffic and protocol fingerprints can still inflate performance. One dataset does not demonstrate independent-site generalisation. This is an offline classifier, not a deployed intrusion detector. Predictions are uncalibrated scores. No watt/joule measurements exist here, and no energy-saving claim is made. Performance timing is wall-clock duration on this machine, not an energy benchmark.
+The machine-learning workflow focuses on distinguishing normal traffic from attack traffic.
 
-## Provenance and rights
+The original full dataset is not included in this repository. The repository contains recovered project materials and supporting example data where available.
 
-Original academic report: `DissertationandReflectiveEssayECS750P.pdf`, read from the user's supplied materials; not redistributed in this package because it contains personal academic identifiers. The original source-message text is preserved in original/. The runnable assembly, server, interface, duplicate-group validation and fresh evaluations were created with ChatGPT assistance in October 2026; original archived text was not rewritten. First-person portfolio descriptions should be reviewed by Prem before publishing.
+## Machine-Learning Workflow
 
-Dataset: Mohamed Amine Ferrag, Othmane Friha, Djallel Hamouda, Leandros Maglaras and Helge Janicke (2022), Edge-IIoTset, IEEE Access, DOI 10.1109/ACCESS.2022.3165809.
+1. **Data exploration:** Inspect the dataset, labels, features and data quality.
+2. **Preprocessing:** Clean records and prepare suitable inputs for classification.
+3. **Model training:** Train machine-learning classifiers using labelled network traffic.
+4. **Evaluation:** Compare predicted labels with actual labels and examine classification metrics.
+5. **Demonstration:** Present the workflow and recorded outputs through a browser interface.
 
-- Paper: https://doi.org/10.1109/ACCESS.2022.3165809
-- Authors' dataset: https://www.kaggle.com/datasets/mohamedamineferrag/edgeiiotset-cyber-security-dataset-of-iot-iiot
-- Kaggle metadata retrieved 24 October 2026 lists **CC BY-NC-SA 4.0**, version 5. See data/dataset_metadata.json. The small numeric sample extracts retain that attribution and dataset licence. Do not assume commercial-use permission; review upstream terms before reuse. Full raw data are excluded from this package.
+## Results and Evaluation
 
-This is a local review build. It has not been published to a public website or repository. The original notebook binary and attachment images/PDFs were not exported. See evidence/verification.json for completed checks and docs/RESTORATION.md for precise scope.
+The original academic experiment reported very high classification performance, including a reported 100% Random Forest accuracy.
+
+However, results of this kind require careful interpretation. Data leakage, duplicate records, preprocessing choices and the way training and test data are separated can affect measured performance.
+
+A separate reconstructed evaluation reported approximately **96.75% accuracy** under its own testing procedure.
+
+These figures come from different experimental runs and should not be treated as directly comparable. The evaluation materials are included so the methods and results can be examined.
+
+## Live Demonstration
+
+**[Open the IIoT Traffic Lab](https://2560-web.github.io/iiot-intrusion-detection-ml/)**
+
+The browser demonstration presents recorded project outputs and example traffic classifications.
+
+**Important:** The GitHub Pages demonstration is a static website. It does not run the Python machine-learning model on GitHub's servers. The Python code and saved model are provided separately for local execution.
+
+## Repository Contents
+
+The repository includes:
+
+- Python source code for the machine-learning workflow.
+- A restored Jupyter notebook.
+- Model and supporting evaluation artifacts.
+- Example data and documentation.
+- A browser-based demonstration.
+- Python dependency information.
+
+## Reproducibility and Project Recovery
+
+This repository contains a reconstruction of my earlier academic project using surviving code, reports, experimental records and related materials.
+
+Some original files, including the complete raw dataset, were not available during recovery. Consequently, the restored workflow and its results should be distinguished from the original academic experiment.
+
+The reconstructed materials are intended to make the available technical work easier to inspect, understand and demonstrate. They should not be interpreted as a byte-for-byte reproduction of the original environment.
+
+## What I Learned
+
+This project strengthened my understanding of how machine learning can be applied to cybersecurity problems, particularly the importance of preparing network data, selecting appropriate evaluation methods and interpreting results critically.
+
+It also gave me practical experience working across data analysis, Python development, model evaluation and technical documentation.
+
+---
+
+**Academic background:** MSc Computer Science, Queen Mary University of London
+
+**Project focus:** Machine Learning, Network Security and Industrial IoT
